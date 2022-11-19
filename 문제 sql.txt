@@ -1,0 +1,106 @@
+﻿-- MySQL Workbench Forward Engineering
+
+SET @OLD_UNIQUE_CHECKS=@@UNIQUE_CHECKS, UNIQUE_CHECKS=0;
+SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0;
+SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='ONLY_FULL_GROUP_BY,STRICT_TRANS_TABLES,NO_ZERO_IN_DATE,NO_ZERO_DATE,ERROR_FOR_DIVISION_BY_ZERO,NO_ENGINE_SUBSTITUTION';
+
+-- -----------------------------------------------------
+-- Schema quizGame
+-- -----------------------------------------------------
+
+-- -----------------------------------------------------
+-- Schema quizGame
+-- -----------------------------------------------------
+CREATE SCHEMA IF NOT EXISTS `quizGame` DEFAULT CHARACTER SET utf8 ;
+USE `quizGame` ;
+
+-- -----------------------------------------------------
+-- Table `quizGame`.`quiz`
+-- -----------------------------------------------------
+CREATE TABLE IF NOT EXISTS `quizGame`.`quiz` (
+  `questionNum` INT NOT NULL AUTO_INCREMENT,
+  `question` VARCHAR(1000) NOT NULL,
+  `questionAns` VARCHAR(100) NOT NULL,
+  `ansLink` VARCHAR(45) NOT NULL,
+  `ansSum` VARCHAR(1000) NOT NULL,
+  `quizSet` INT NOT NULL,
+  PRIMARY KEY (`questionNum`))
+ENGINE = InnoDB;
+
+
+-- -----------------------------------------------------
+-- Table `quizGame`.`users`
+-- -----------------------------------------------------
+CREATE TABLE IF NOT EXISTS `quizGame`.`users` (
+  `id` VARCHAR(20) NOT NULL,
+  `password` VARCHAR(20) NULL,
+  `name` VARCHAR(10) NULL,
+  `telNum` VARCHAR(15) NULL,
+  `totalScore` INT NULL,
+  PRIMARY KEY (`id`))
+ENGINE = InnoDB;
+
+
+SET SQL_MODE=@OLD_SQL_MODE;
+SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS;
+SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+INSERT INTO `quizgame`.`quiz` (`question`, `questionAns`, `ansLink`, `ansSum`, `quizSet`) VALUES ('호주의 수도는?', '캔버라', '', '독일의 수도는 베를린입니다', 1);
+INSERT INTO `quizgame`.`quiz` (`question`, `questionAns`, `ansLink`, `ansSum`, `quizSet`) VALUES ('캐나다의 수도는?', '오타와', '', '캐나다의 수도는 오타와입니다', 2);
+INSERT INTO `quizgame`.`quiz` (`question`, `questionAns`, `ansLink`, `ansSum`, `quizSet`) VALUES ( '세계에서 가장 인구가 많은 나라는?', '중국', '', '중국은 약 14억 25000만의 인구로, 세계에서 가장 인구가 많은 나라입니다', 3);
+INSERT INTO `quizgame`.`quiz` (`question`, `questionAns`, `ansLink`, `ansSum`, `quizSet`) VALUES ('제주도는 유네스코 세계자연유산에 속한다 (O/X)', 'O', '', '제주도는 2007년에 유네스코 세계 자연유산에 등재되었습니다', 4);
+INSERT INTO `quizgame`.`quiz` (`question`, `questionAns`, `ansLink`, `ansSum`, `quizSet`) VALUES ('세계에서 가장 긴 강은 남아메리카에 있다 (O/X)', 'X', '', '세계에서 가장 긴 강은 나일 강으로, 아프리카의 이집트에 위치합니다', 5);
+INSERT INTO `quizgame`.`quiz` (`question`, `questionAns`, `ansLink`, `ansSum`, `quizSet`) VALUES ('5대양(태평양, 인도양, 대서양, 북극해, 남극해) 중 가장 넓은 바다는?', '태평양', '', '태평양은 면적이 165,200,000제곱킬로미터로, 5대양 중에 가장 큰 바다입니다', 6);
+INSERT INTO `quizgame`.`quiz` (`question`, `questionAns`, `ansLink`, `ansSum`, `quizSet`) VALUES ('"물의 도시"로 알려진 이탈리아의 이 도시는 OOOO이다', '베네치아', '', '유네스코 세계유산이기도 한 베네치아는 120여 개의 섬으로 구성된 바다 위의 도시입니다', 7);
+INSERT INTO `quizgame`.`quiz` (`question`, `questionAns`, `ansLink`, `ansSum`, `quizSet`) VALUES ('나이아가라 폭포는 브라질에 위치한다', 'X', '', '미국과 캐나다 국경에 걸친 폭포로서, 북미에서 가장 큰 폭포이며 이과수 폭포, 빅토리아 폭포와 함께 세계 3대 폭포로 꼽힌다', 8);
+
+INSERT INTO `quizgame`.`quiz` (`question`, `questionAns`, `ansLink`, `ansSum`, `quizSet`) VALUES ('폐와 허파는 동일한 신체기관을 가리키는 말이다 (O/X)', 'O', '', '허파, 폐 또는 부아(순우리말)는 양서류 이상의 척추동물에게 있는 호흡기 기관입니다', 1);
+INSERT INTO `quizgame`.`quiz` (`question`, `questionAns`, `ansLink`, `ansSum`, `quizSet`) VALUES ('지구의 공기에서 가장 많은 비율을 차지하는 기체는?', '질소', '', '지구의 공기에서 78%는 질소로 구성되고, 약 21%가 산소로 구성됩니다', 2);
+INSERT INTO `quizgame`.`quiz` (`question`, `questionAns`, `ansLink`, `ansSum`, `quizSet`) VALUES ('오징어의 다리 수와 낙지의 다리 수를 합하면 몇 개인가? (숫자만 쓰시오)', '18', '', '오징어의 다리 수는 10개, 낙지의 다리 수는 8개입니다', 3);
+INSERT INTO `quizgame`.`quiz` (`question`, `questionAns`, `ansLink`, `ansSum`, `quizSet`) VALUES ('암컷 꿩을 뜻하는 세글자의 단어는?', '까투리', '', '암컷 꿩은 까투리입니다', 4);
+INSERT INTO `quizgame`.`quiz` (`question`, `questionAns`, `ansLink`, `ansSum`, `quizSet`) VALUES ('소가 가지고 있는 위의 개수는? (숫자만 쓰시오)', '4', '', '입니다', 5);
+INSERT INTO `quizgame`.`quiz` (`question`, `questionAns`, `ansLink`, `ansSum`, `quizSet`) VALUES ('고래는 어류에 속한다 (O/X)', 'X', '', '고래는 새끼를 낳는 포유류에 속합니다', 6);
+INSERT INTO `quizgame`.`quiz` (`question`, `questionAns`, `ansLink`, `ansSum`, `quizSet`) VALUES ('포유류 중 유일하게 날아다니는 동물은?', '박쥐', '', '박쥐는 포유류 중 유일하게 날아다니는 동물입니다', 7);
+INSERT INTO `quizgame`.`quiz` (`question`, `questionAns`, `ansLink`, `ansSum`, `quizSet`) VALUES ('낙타의 혹은 대부분 무엇으로 이루어져 있는가?', '지방', '', '낙타의 혹은 대부분 지방으로 이루어져 있습니다',8);
+
+INSERT INTO `quizgame`.`quiz` (`question`, `questionAns`, `ansLink`, `ansSum`, `quizSet`) VALUES ('제임스는 소주를 마시더니 (금새 / 금세) 얼굴이 붉어졌다', '금세', '', '지금 바로’의 뜻으로 쓰이는 부사 ‘금세’는 ‘금시에’가 줄어든 말입니다', 1);
+INSERT INTO `quizgame`.`quiz` (`question`, `questionAns`, `ansLink`, `ansSum`, `quizSet`) VALUES ('저기 혹시 오늘이 몇월 (몇일 / 며칠)인지요?', '며칠', 'https://www.jeonmae.co.kr/news/articleView.html?idxno=848036', '링크 참조', 2);
+INSERT INTO `quizgame`.`quiz` (`question`, `questionAns`, `ansLink`, `ansSum`, `quizSet`) VALUES ('(웬지 / 왠지) 모르게 오늘은 기분이 좋지 않았다', '왠지', '', '왠지는 왜 그런지 모르게를 줄여 쓴 말이기 때문입니다. 즉, 본 말에서 왜를 쓰기 때문에, 당연히 준말에서도 왜로 모음을 써야 합니다', 3);
+INSERT INTO `quizgame`.`quiz` (`question`, `questionAns`, `ansLink`, `ansSum`, `quizSet`) VALUES ('그는 여행 중에 (틈틈이 / 틈틈히) 약을 먹었다', '틈틈이', '', '뒤에 -하다를 붙여서 말이 되면 "히"입니다, 틈틈하다 라는 말은 없으므로 틈틈이가 정답입니다', 4);
+INSERT INTO `quizgame`.`quiz` (`question`, `questionAns`, `ansLink`, `ansSum`, `quizSet`) VALUES ('어머니는 삶은 면을 체에 (받혀 / 받쳐 / 밭쳐) 놓으셨다', '밭쳐', 'https://m.blog.naver.com/PostView.naver?isHttpsRedirect=true&blogId=wownys&logNo=221009075698', '링크 참조', 5);
+INSERT INTO `quizgame`.`quiz` (`question`, `questionAns`, `ansLink`, `ansSum`, `quizSet`) VALUES ('"사흘 뒤"를 나타내는 두 글자 순우리말은?', '글피', 'https://www.korean.go.kr/front/onlineQna/onlineQnaView.do?mn_id=216&qna_seq=8360', '링크 참조', 6);
+INSERT INTO `quizgame`.`quiz` (`question`, `questionAns`, `ansLink`, `ansSum`, `quizSet`) VALUES ('어제 한 일이 맘에 걸렸었는데, 결국 (사단 / 사달)이 났다', '사달', 'https://brunch.co.kr/@vhfhflya/52', '링크 참조', 7);
+INSERT INTO `quizgame`.`quiz` (`question`, `questionAns`, `ansLink`, `ansSum`, `quizSet`) VALUES ('그는 강물에 (돌멩이 / 돌맹이)를 던졌다', '돌멩이', 'https://brunch.co.kr/@vhfhflya/52', '링크 참조', 8);
+
+INSERT INTO `quizgame`.`quiz` (`question`, `questionAns`, `ansLink`, `ansSum`, `quizSet`) VALUES ('조선의 3번째 왕의 본명은 OOO이다', '이방원', '', '조선의 3번째 왕은 태종 이방원입니다', 1);
+INSERT INTO `quizgame`.`quiz` (`question`, `questionAns`, `ansLink`, `ansSum`, `quizSet`) VALUES ('홍커우 공원에 폭탄을 던진 우리나라의 의사 이름은?', '윤봉길', '', '1932년 4월 29일 중화민국 상하이시 훙커우 공원에서 조선인 독립운동가 윤봉길이 일본 제국의 주요 인사들에게 폭탄을 투척하여 사상자를 내었습니다', 2);
+INSERT INTO `quizgame`.`quiz` (`question`, `questionAns`, `ansLink`, `ansSum`, `quizSet`) VALUES ('조선시대의 장영실이 만든 물시계의 이름은 OOO이다', '', '', '자격루는 조선 세종 때의 물시계로, 자동으로 시간마다 종이 울리도록 한 국가 표준시계입니다', 3);
+INSERT INTO `quizgame`.`quiz` (`question`, `questionAns`, `ansLink`, `ansSum`, `quizSet`) VALUES ('"신은 죽었다"라고 말한 독일의 철학자 이름은? (두 글자)', '니체', '', '니체(Friedrich Wilhelm Nietzsche)는 독일의 철학자이자 실존철학의 선구자이다. 흔히 ‘망치를 든 철학자’로 불린다. 그의 저서 <짜라투스트라는 이렇게 말했다>에서 “신은 죽었다”라고 말했습니다', 4);
+INSERT INTO `quizgame`.`quiz` (`question`, `questionAns`, `ansLink`, `ansSum`, `quizSet`) VALUES ('<사계>를 작곡한 이탈리아의 작곡가는?', '비발디', '', '<사계>는 이탈리아의 작곡가 안토니오 비발디가 1725년에 작곡한 바이올린 협주곡으로 작품 번호는 Opus 8, No. 1-4입니다', 5);
+INSERT INTO `quizgame`.`quiz` (`question`, `questionAns`, `ansLink`, `ansSum`, `quizSet`) VALUES ('<별이 빛나는 밤>을 그린 네덜란드의 화가 이름은? (두 글자)', '고흐', '', '<별이 빛나는 밤>은 네덜란드의 화가 빈센트 반 고흐의 가장 널리 알려진 작품이자 정신병을 앓고 있을 당시 고흐가 그린 그림이다. 1889년 생레미의 정신병원에서 고흐는 정신적 질환으로 인한 고통을 떠올려 그림 속의 소용돌이로 묘사했습니다', 6);
+INSERT INTO `quizgame`.`quiz` (`question`, `questionAns`, `ansLink`, `ansSum`, `quizSet`) VALUES ('<엘리제를 위하여>를 작곡한 음악가는 모차르트이다 (O/X)', 'X', '', '조선의 3번째 왕은 태종 이방원입니다', 7);
+INSERT INTO `quizgame`.`quiz` (`question`, `questionAns`, `ansLink`, `ansSum`, `quizSet`) VALUES ('태양중심설(지동설)을 처음으로 주장한 폴란드의 천문학자는 OOOOOO이다', '코페르니쿠스', '', '니콜라우스 코페르니쿠스는 당시 진리처럼 믿어온 지구중심설의 오류를 지적하고 태양중심설을 주장하여 근대 자연과학의 획기적인 전환을 가져온 폴란드의 천문학자이다', 8);
+
+INSERT INTO `quizgame`.`quiz` (`question`, `questionAns`, `ansLink`, `ansSum`, `quizSet`) VALUES ('박정희 대통령을 암살한 사람의 이름은?', '김재규', '', '1979년 10월 26일 저녁 7시 50분경에 서울특별시 종로구 궁정동 중앙정보부 안전가옥에서 김재규 중앙정보부장과 부하 경호원이 박정희 대통령, 차지철 대통령경호실장 등 총 6명을 살해했습니다', 1);
+INSERT INTO `quizgame`.`quiz` (`question`, `questionAns`, `ansLink`, `ansSum`, `quizSet`) VALUES ('정몽주가 자객에게 죽임당한 다리의 이름은?', '선죽교', '', '정몽주는 역성혁명파의 조선건국에 반대하다가 1392년(공양왕 4년) 4월 이성계의 문병차 돌아가던 길에 개경 선죽교에서 이방원 일파에 의해 암살되었습니다', 2);
+INSERT INTO `quizgame`.`quiz` (`question`, `questionAns`, `ansLink`, `ansSum`, `quizSet`) VALUES ('거시 세계를 다룬 <상대성 이론>을 주장한 과학자의 이름은?', '아인슈타인','', '알베르트 아인슈타인은 독일 태생의 이론물리학자로서 역사상 가장 위대한 물리학자 중의 한 명으로 널리 알려져 있습니다. 상대성 이론을 개발한 것으로 유명하지만 양자역학 이론의 발전에도 중요한 공헌을 했습니다', 3);
+INSERT INTO `quizgame`.`quiz` (`question`, `questionAns`, `ansLink`, `ansSum`, `quizSet`) VALUES ('박정희 대통령을 암살한 사람의 이름은?', '김재규', '', '1979년 10월 26일 저녁 7시 50분경에 서울특별시 종로구 궁정동 중앙정보부 안전가옥에서 김재규 중앙정보부장과 부하 경호원이 박정희 대통령, 차지철 대통령경호실장 등 총 6명을 살해했습니다', 4);
+INSERT INTO `quizgame`.`quiz` (`question`, `questionAns`, `ansLink`, `ansSum`, `quizSet`) VALUES ('대한민국의 보물 제 1호는 OOOO이다', '흥인지문', '', '흥인지문은 조선의 수도인 한양의 4대문 중의 하나로 동쪽의 대문입니다. 속칭은 동대문으로, 이는 조선 초기부터 불린 이름입니다. 1963년 1월 21일 대한민국의 보물로 지정되었습니다', 5);
+INSERT INTO `quizgame`.`quiz` (`question`, `questionAns`, `ansLink`, `ansSum`, `quizSet`) VALUES ('이순신 장군이 전사한 전투는 한산도 대첩이다 (O/X)', 'X', '', '임진왜란의 막바지인 1598년 12월 벌어진 조선-명 연합군과 일본 사이에서 벌어진 해전입니다. 이순신의 생애 마지막 전투이자 그가 전사한 전투로서 유명합니다.', 6);
+INSERT INTO `quizgame`.`quiz` (`question`, `questionAns`, `ansLink`, `ansSum`, `quizSet`) VALUES ('팔만대장경이 보관된 절의 이름은 "해인사"이다 (O/X)', 'O', '', '합천 해인사 대장경판 또는 팔만대장경, 고려대장경은 경상남도 합천군 해인사에 있는, 고려가 몽골의 침입을 불력으로 막아내고자 1236년 강화군에서 조판에 착수하여 15년이 지난 1251년까지 총 16년에 걸쳐 완성한 고려의 대장경입니다', 7);
+INSERT INTO `quizgame`.`quiz` (`question`, `questionAns`, `ansLink`, `ansSum`, `quizSet`) VALUES ('대한민국의 광복절은 1948년 8월 15일이다 (O/X)', 'X', '', '대한민국은 1945년 8월 15일에 일본으로부터 해방되었습니다', 8);
