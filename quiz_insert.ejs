@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <title>Login Page</title>
+  </head>
+  <BODY>
+<BR><BR><BR>
+<CENTER>
+<div class="row">
+  <HR>
+    <h1>문제 등록 (관리자용)</h1>
+  <HR>
+    <form action="/quizins" method="post">
+</div>
+<BR><BR><BR>
+
+
+    <h3>문제 :</h3>
+    <input id="quizmain" name="quizmain" type="text" style="cursor: auto;" class="quizmain"/>
+
+<BR>
+
+      <h3>정답 :</h3>
+      <input id="quizans" name="quizans" type="text" class="quizans"/>
+
+<BR>
+
+    <h3>링크 :</h3>
+    <input id="anslink" name="anslink" type="text" class="anslink" placeholder="선택사항입니다" />
+
+<BR>
+
+    <h3>해설 :</h3>
+    <input id="ansdesc" name="ansdesc" type="text" style="cursor: auto;" class="ansdesc"/>
+
+<BR>
+
+  <h3>세트 번호 :</h3>
+  <input id="setNum" name="setNum" type="text" style="cursor: auto;" class="setNum"/>
+<BR><BR>
+  <form action="/quizins" method="get">
+<div class="row">
+    <input type= "submit" name ="quizins" value="등록하기" style="width:100px;height:40px;font-size:20px;line-width:5px" />
+</div>
+</form>
+</CENTER>
+</form>
+<BODY>
