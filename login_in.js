@@ -58,7 +58,8 @@ app.post('/login', function(req, res) {
   });
 });
 
-//회원가입 부분
+
+// 회원가입 부분
 app.post('/register', function(request, response) {
     var id = request.body.id;
     var password = request.body.password;
@@ -93,6 +94,34 @@ app.post('/register', function(request, response) {
     }
 });
 
+
+//문제 등록 부분
+app.get('/quizins', function(req, res) {
+  res.render('quiz_insert')
+});
+
+app.post('/quizins', function(req, res) {
+  var quizQ = req.body.quizmain;
+  var quizAns = req.body.quizans;
+  var quizLink = req.body.anslink;
+  var quizDesc = req.body.ansdesc;
+  var quizsetNum = req.body.setNum;
+  if (quizQ && quizAns && quizDesc && quizsetNum) {
+              conn.query('INSERT INTO quiz (question, questionAns, ansLink, ansSum, quizSet) VALUES(?,?,?,?,?)', [quizQ, quizAns, quizLink, quizDesc, quizsetNum],
+              function (error, data) {
+                  if (error)
+                  console.log(error);
+                  else
+                  console.log(data);
+                  res.send('<script type="text/javascript">alert("등록되었습니다"); document.location.href="/login";</script>');
+                  res.end();
+              });
+
+  } else {
+      res.send('<script type="text/javascript">alert("모든 정보를 입력하세요"); document.location.href="/quizins";</script>');
+      res.end();
+  }
+});
 
 app.listen(3000, function() {
   console.log('Server running at 3000');
