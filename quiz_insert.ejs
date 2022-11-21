@@ -1,4 +1,30 @@
 <!DOCTYPE html>
+<script language="Javascript">
+<!--
+var goodURL  = "/quizins"  //이곳에 인증이 되었을때 이동할 페이지  입력
+    alert("관리자용 페이지입니다. 비밀번호를 입력하세요")
+
+var password =  prompt("비밀번호 : ","")
+
+    if (password == null)  {
+        alert("비밀번호가 틀립니다.")
+        location  = "/login"     // 실패시 이동 주소       history.back();를 넣어도 됨
+    }
+    else  {
+        var combo =  password
+        var total =  combo.toLowerCase()
+
+    if  (total == "1111")  {                // 비밀번호
+        alert("인증되었습니다.")
+        location  =  goodURL
+    }
+    else  {
+        alert("비밀번호가 틀립니다.")
+        location  = "/login"    // 실패시 이동 주소      history.back();를 넣어도 됨
+    }
+}
+//-->
+</script>
 
 <html>
   <head>
