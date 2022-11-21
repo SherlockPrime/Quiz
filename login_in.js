@@ -20,7 +20,7 @@ conn.connect();
 app.set('view engine', 'ejs');
 app.set('views', './views');
 app.use(bodyParser.urlencoded({ extended : false}));
-
+app.use(express.static(__dirname + '/public'));
 //app.get('/', function (req, res) {
 //  res.sendFile( __dirname + "/" + "login.html" );
 //});
@@ -32,9 +32,29 @@ app.get('/login', function(req, res) {
   res.render('login');
 });
 
+quizQ = [];
+console.log(quizQ);
+
+app.get('/quiz', function(req, res) {
+  res.sendFile(__dirname + '/' + 'quiz.html')
+  //퀴즈최초받아오기
+  var sql = 'SELECT question FROM quiz where quizSet = 1';
+  conn.query(sql, function(err, results) {
+    quizQ = results;
+    //console.log(results[0].question);
+    res.render('quiz', {question : results[0].question});
+
+  });
+});
+
 app.get('/register', function(req,res) {
   res.sendFile(__dirname + '/' + 'signin.html')
 })
+
+app.get('/main', function(req,res) {
+  return res.sendFile(__dirname + '/' + 'main.html');
+})
+
 app.post('/login', function(req, res) {
   var id = req.body.username;
   var pw = req.body.password;
@@ -57,7 +77,6 @@ app.post('/login', function(req, res) {
 
   });
 });
-
 
 // 회원가입 부분
 app.post('/register', function(request, response) {
@@ -126,3 +145,4 @@ app.post('/quizins', function(req, res) {
 app.listen(3000, function() {
   console.log('Server running at 3000');
 });
+
