@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="witdth=device-width, initial-scale=1.0">
+  <title>Quiz Time</title>
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+
+<body>
+    <div class="container">
+
+      <div class="quiz-header">
+        <h2><%= question %></h2>
+      </div>
+      <form action = "/quiz" method = "post">
+      <div class="quiz-body">
+
+        <p>
+        <input type="text" name="ans_text" id="ans_text" placeholder="정답을 입력하세요" autocomplete="off">
+        </p>
+
+
+      </div>
+
+      <button id="submit">제출</button>
+  </form>
+  </div>
+</body>
+
+</html>
