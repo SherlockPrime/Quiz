@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>결과창</title>
+  </head>
+  <body onload="noBack();" onpageshow="if(event.persisted) noBack();" onunload="">
+    <a>hi</a>
+<form action="/main", method='get'>
+    <button><a href="../main.html" style="a:visited">홈으로</a></button>
+  </form>
+    <h4><%= ansSumm[0] %></h4><br>
+    <h4><%= ansSumm[1] %></h4><br>
+    <h4><%= ansSumm[2] %></h4><br>
+    <h4><%= ansSumm[3] %></h4><br>
+    <h4><%= ansSumm[4] %></h4><br><Br>
+
+    <h1>점수는 총 <%= mScore %>점 입니다</h1>
+  </body>
+</html>
