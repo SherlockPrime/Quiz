@@ -1,5 +1,7 @@
 var mysql = require('mysql');
 var ejs = require('ejs');
+var jsdom = require('jsdom');
+var{JSDOM} = jsdom;
 
 var express = require('express');
 var bodyParser = require('body-parser');
@@ -32,20 +34,75 @@ app.get('/login', function(req, res) {
   res.render('login');
 });
 
-quizQ = [];
-console.log(quizQ);
 
-app.get('/quiz', function(req, res) {
-  res.sendFile(__dirname + '/' + 'quiz.html')
+
+var qus_index = 0;
+var score = 0;
+var ans_arr = [];
+var sum_arr = [];
+var qus_arr = [];
+var qus_ans_arr = [];
+const rrr = function getRandomInt(min, max) {
+  min = Math.ceil(min);
+  max = Math.floor(max);
+  return Math.floor(Math.random() * (max - min)) + min; //최댓값은 제외, 최솟값은 포함
+}
+app.post('/quiz', function(req, res) {
+
   //퀴즈최초받아오기
-  var sql = 'SELECT question FROM quiz where quizSet = 1';
-  conn.query(sql, function(err, results) {
-    quizQ = results;
-    //console.log(results[0].question);
-    res.render('quiz', {question : results[0].question});
+  var ttt = rrr(1,9);
+  var sql = 'SELECT * FROM quiz where quizSet = ?';
+  conn.query(sql, ttt, function(err, results) {
+    if(qus_index <= 4) {
+      res.render('quiz', {question : results[qus_index].question});
+      ans_arr[qus_index] = results[qus_index].questionAns;
+      sum_arr[qus_index] = results[qus_index].ansSum;
+      qus_arr[qus_index] = results[qus_index].question;
+      qus_ans_arr[qus_index] = req.body.ans_text;
+      console.log(sum_arr)
+      console.log(ans_arr);
+      console.log(qus_ans_arr);
+      qus_index++;
+    }
+    else{
+      qus_ans_arr[qus_index] = req.body.ans_text;
+      console.log(sum_arr)
+      console.log(ans_arr);
+      console.log(qus_ans_arr);
+      for (let ga =0 ; ga<5 ; ga++) {
+        if(qus_ans_arr[ga+1] == ans_arr[ga])
+          score++;
+      }
+      console.log(score);
+      qus_index=0;
+      res.render('qus_results', {ansSumm : sum_arr, qAns : ans_arr, ques : qus_arr, mScore : score});
+      ans_arr = [];
+      sum_arr = [];
+      qus_arr = [];
+      qus_ans_arr = [];
+    }
+app.post('/ansCheck', function(req, res) {
+
+})
 
   });
+
 });
+//ans_arr = [];
+//sum_arr = [];
+//qus_arr = [];
+
+
+/*
+app.post('/quizsub', function(req, res) {
+  var sql = 'SELECT questionAns FROM quiz where quizSet = 1';
+  conn.query(sql, function(err, results) {
+    var a = 0;
+    if(results[a] == req.body.ans_text)
+  })
+})
+*/
+
 
 app.get('/register', function(req,res) {
   res.sendFile(__dirname + '/' + 'signin.html')
@@ -54,6 +111,8 @@ app.get('/register', function(req,res) {
 app.get('/main', function(req,res) {
   return res.sendFile(__dirname + '/' + 'main.html');
 })
+
+
 
 app.post('/login', function(req, res) {
   var id = req.body.username;
@@ -145,4 +204,3 @@ app.post('/quizins', function(req, res) {
 app.listen(3000, function() {
   console.log('Server running at 3000');
 });
-
